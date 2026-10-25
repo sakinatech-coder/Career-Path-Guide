@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Path Guide | After 10th, 12th and Degree</title>
+<meta name="description" content="Easy career guide for students: what to choose after 10th, 12th, BCA, B.Com, BA, BSc IT and more, with skills, jobs and next steps.">
+<meta property="og:title" content="Career Path Guide for Students">
+<meta property="og:description" content="Search any course and see what to study next, skills you need and jobs you can do.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232f3e9e'/><text x='50' y='70' font-size='58' text-anchor='middle' fill='%23ffc933'>➜</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7ff;--card:#fff;--ink:#1b1f3b;--mut:#566086;--line:#dbe2f5;--ind:#2f3e9e;--cor:#ff6b4a;--teal:#14a38b;--yel:#ffc933;--tint:#eaeeff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Nunito,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3{font-family:Poppins,Nunito,sans-serif;line-height:1.25}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--cor);outline-offset:2px}
+.wrap{max-width:1050px;margin:0 auto;padding:0 18px}
+header{background:var(--ind);color:#fff;padding:46px 0 70px}
+header h1{font-size:clamp(1.8rem,5vw,2.9rem);max-width:18ch}
+header p{margin:12px 0 22px;max-width:55ch;color:#dfe5ff}
+.search{display:flex;gap:8px;max-width:560px}
+.search input{flex:1;padding:14px 16px;border-radius:12px;border:0;font:inherit;font-size:1.05rem}
+.search button{background:var(--cor);color:#fff;border:0;border-radius:12px;padding:0 20px;font-weight:800}
+.hint{margin-top:10px;font-size:.9rem;color:#c9d2ff}
+.pull{margin-top:-40px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.path{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.path button,.chip{background:var(--tint);border:2px solid transparent;border-radius:30px;padding:8px 16px;font-weight:600}
+.path button.on{background:var(--ind);color:#fff}
+.path i{color:var(--cor);font-style:normal;font-weight:800}
+.mine{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mine b{margin-right:4px}
+.mine button{background:#fff;border:2px solid var(--yel);border-radius:30px;padding:6px 14px;font-weight:600}
+.mine button.on{background:var(--yel)}
+main{padding:30px 0 50px}
+.top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.c{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--ind);border-radius:14px;padding:16px;text-align:left;display:block;width:100%;transition:transform .15s,box-shadow .15s}
+.c:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(47,62,158,.12)}
+.c.l10{border-left-color:var(--cor)}.c.l12{border-left-color:var(--ind)}.c.lpg{border-left-color:var(--teal)}
+.c h3{font-size:1.15rem}
+.c small{color:var(--mut);display:block;margin:2px 0 8px}
+.c p{font-size:.93rem;color:var(--mut)}
+.badge{display:inline-block;font-size:.78rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-bottom:8px;color:#fff;background:var(--ind)}
+.l10 .badge{background:var(--cor)}.lpg .badge{background:var(--teal)}
+.empty{padding:30px;text-align:center;color:var(--mut)}
+dialog{border:0;border-radius:18px;max-width:640px;width:calc(100% - 24px);padding:0;background:var(--card);color:var(--ink);margin:auto;max-height:90vh;overflow:auto}
+dialog::backdrop{background:rgba(20,24,60,.6)}
+.dh{background:var(--ind);color:#fff;padding:20px 22px;position:sticky;top:0}
+.dh p{color:#dfe5ff;font-size:.95rem}
+.x{position:absolute;right:12px;top:12px;background:rgba(255,255,255,.2);border:0;border-radius:50%;width:34px;height:34px;color:#fff;font-size:1.1rem}
+.db{padding:6px 22px 22px}
+.db h4{margin:16px 0 6px;color:var(--ind);font-family:Poppins;font-size:1rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.meta span{background:rgba(255,255,255,.18);padding:3px 12px;border-radius:20px;font-size:.85rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{background:var(--tint);padding:4px 12px;border-radius:20px;font-size:.9rem}
+.job{background:#e1f6f1;color:#0b5c4e}
+.nx{background:#fff;border:2px solid var(--cor);border-radius:30px;padding:5px 14px;font-weight:700;color:var(--ink)}
+span.nx{border-color:var(--line);font-weight:600;color:var(--mut)}
+.why{background:#fff7dd;border-left:5px solid var(--yel);padding:10px 14px;border-radius:8px}
+footer{background:var(--ink);color:#c5cbe8;padding:22px 0;font-size:.88rem;text-align:center}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>What should I do after 10th, 12th or my degree?</h1>
+<p>Search any course, like BCA, B.Com or BA. See what you study, the skills you need, the jobs you can get and what to do next.</p>
+<form class="search" id="sf" role="search"><input id="q" type="search" placeholder="Try: B.Com, BCA, after 12th" aria-label="Search courses"><button>Search</button></form>
+<p class="hint">Tip: you can type with or without dots, like "bcom" or "B.Com".</p>
+</div></header>
+
+<div class="wrap pull"><div class="box">
+<div class="path" id="path"></div>
+<div class="mine"><b>I like:</b><span id="mine" style="display:contents"></span></div>
+</div></div>
+
+<main><div class="wrap">
+<div class="top"><h2 id="ttl">All options</h2><span id="cnt" style="color:var(--mut)"></span></div>
+<div class="grid" id="grid"></div>
+</div></main>
+<footer><div class="wrap">Made by Sakina SK for students. This guide gives general ideas only. Rules, fees and entry exams change, so always check the official college or university website before you decide.</div></footer>
+
+<dialog id="dg" aria-labelledby="dt"><div class="dh"><button class="x" id="cl" aria-label="Close">✕</button><h3 id="dt"></h3><p id="df"></p><div class="meta" id="dm"></div></div><div class="db" id="db"></div></dialog>
+
+<script>
+const $=id=>document.getElementById(id);
+const norm=s=>s.toLowerCase().replace(/[^a-z0-9]/g,'');
+/* id, name, full, level, duration, who can join, what you learn, why choose, skills, jobs, next */
+const D=[
+['arts','Arts (Humanities)','Stream in class 11 and 12','10','2 years','After class 10','History, political science, geography, economics, languages and sociology. Less maths, more reading and thinking.','You like reading, writing, talking and understanding people and society. It keeps many doors open, like teaching, law, media and government exams.',['Writing','Speaking','Research','Thinking clearly'],['Teacher','Journalist','Lawyer','Civil services officer','Social worker','Content writer'],['BA','BA LLB','B.Ed']],
+['commerce','Commerce','Stream in class 11 and 12','10','2 years','After class 10','Accountancy, business studies and economics. Maths is optional in many schools.','You like money, business, shops and banks. You learn how companies earn, spend and save.',['Accounts','Basic maths','Business sense','Excel'],['Accountant','Bank clerk','Business owner','Tax assistant','Company secretary'],['B.Com','BBA','BCA']],
+['pcb','Science (Medical, PCB)','Stream in class 11 and 12','10','2 years','After class 10','Physics, chemistry and biology.','You like biology, the human body and helping people stay healthy. Choose it if you want to become a doctor, nurse or pharmacist.',['Biology','Memory and focus','Patience','Care for people'],['Doctor','Nurse','Pharmacist','Lab technician','Dentist'],['MBBS','BSc Nursing','B.Pharm','BSc (Science)']],
+['pcm','Science (Non-Medical, PCM)','Stream in class 11 and 12','10','2 years','After class 10','Physics, chemistry and maths. Many schools add computer science.','You like maths, machines, computers and solving problems. Good for engineering and computer careers.',['Maths','Logic','Problem solving','Computer basics'],['Engineer','Software developer','Architect','Data analyst','Pilot (extra training)'],['B.Tech','BCA','BSc IT','BSc (Science)']],
+['diploma','Diploma / ITI / Polytechnic','Skill course after class 10','10','1 to 3 years','After class 10','Hands-on skills in areas like electrical, mechanical, computer, civil, fashion or cooking.','You want a skill and a job sooner. After a diploma you can often join B.Tech in the second year (lateral entry).',['Practical skills','Technical drawing','Teamwork'],['Technician','Junior engineer','Supervisor','Workshop owner'],['B.Tech','Jobs']],
+['bca','BCA','Bachelor of Computer Applications','12','3 years','After 12th (many colleges accept any stream; some ask for maths)','Programming, databases, websites, networks and how computer software is made.','You like computers and building things. It is a direct path into IT, and you can do MCA later.',['Programming (C, Java, Python)','SQL and databases','HTML, CSS, JavaScript','Problem solving'],['Web developer','Software tester','IT support','App developer (junior)','Data entry analyst'],['MCA','MBA','MSc IT','Jobs']],
+['bscit','BSc IT','Bachelor of Science in Information Technology','12','3 years','After 12th (science preferred, some colleges accept all)','Programming, networking, databases, web design and software basics.','Like BCA, but more science style. Good if you want IT, networks or cyber security.',['Programming','Networking','Databases','Web design'],['Web designer','Network support','Software tester','System administrator','Cyber security trainee'],['MSc IT','MCA','MBA','Jobs']],
+['bcom','B.Com','Bachelor of Commerce','12','3 years','After 12th (commerce is best, others can join in many colleges)','Accounting, business law, taxes, banking and economics.','You like numbers, business and banking. Good for finance, accounts and company jobs.',['Accounting','Tally and Excel','Taxation basics','Communication'],['Accountant','Bank officer','Tax assistant','Auditor assistant','Business owner','Digital marketing executive'],['M.Com','MBA','CA','Jobs']],
+['bba','BBA','Bachelor of Business Administration','12','3 years','After 12th (any stream)','Management, marketing, finance, HR and how to run a business.','You want to lead people or start a business. A good step before MBA.',['Leadership','Marketing','Communication','Planning'],['Marketing executive','HR assistant','Sales executive','Business analyst (junior)','Start-up founder'],['MBA','Jobs']],
+['ba','BA','Bachelor of Arts','12','3 years','After 12th (any stream)','Subjects you choose, like English, history, political science, economics, psychology or Punjabi/Hindi.','You like people, stories, society and ideas. It is also a strong base for government exam preparation.',['Writing','Speaking','Research','Understanding people'],['Teacher (with B.Ed)','Journalist','Content writer','Government jobs','Social worker','Translator'],['MA','B.Ed','MBA','Jobs']],
+['bsc','BSc (Science)','Bachelor of Science (Physics, Chemistry, Maths, Biology and more)','12','3 years','After 12th science (subjects depend on your stream)','Deep study of one or more science subjects with lab work.','You like how nature and the world work. It leads to research, teaching and lab careers.',['Lab skills','Analysis','Maths and logic','Reporting'],['Lab assistant','Researcher','Teacher (with B.Ed)','Quality checker','Data analyst (with extra skills)'],['MSc','B.Ed','MBA','Jobs']],
+['btech','B.Tech','Bachelor of Technology (Engineering)','12','4 years','After 12th with PCM (entry exams used by many colleges)','Core engineering plus subjects like computer science, mechanical, civil, electrical or electronics.','You like maths, machines and building things. Many branches, many job fields.',['Maths','Programming','Design','Teamwork'],['Software engineer','Civil engineer','Mechanical engineer','Electrical engineer','Data analyst'],['M.Tech','MBA','Jobs']],
+['mbbs','MBBS','Bachelor of Medicine and Bachelor of Surgery','12','5.5 years (with internship)','After 12th with PCB and a medical entrance exam','Human body, diseases, medicine and practice in hospitals.','You want to become a doctor. It takes long and needs hard work, but you serve people directly.',['Biology','Patience','Memory','Caring for people'],['Doctor','Surgeon (after PG)','Hospital medical officer'],['MD / MS (specialist)','Jobs']],
+['nursing','BSc Nursing','Bachelor of Science in Nursing','12','4 years','After 12th with PCB','Patient care, medicines, first aid and hospital work.','You want to care for patients and work in health. Nurses are needed in many places.',['Care and kindness','Hygiene','Teamwork','Staying calm'],['Staff nurse','Community health nurse','Nursing teacher (with higher study)'],['MSc Nursing','Jobs']],
+['bpharm','B.Pharm','Bachelor of Pharmacy','12','4 years','After 12th with PCB or PCM (check the college)','Medicines, how they are made, tested and given safely.','You like chemistry and health. Good for medicine shops, factories and labs.',['Chemistry','Accuracy','Lab work'],['Pharmacist','Drug inspector (with exam)','Quality checker','Medical shop owner'],['M.Pharm','MBA','Jobs']],
+['ballb','BA LLB','Integrated law course (BA + Law)','12','5 years','After 12th (any stream, many colleges use an entry exam)','Law, courts, rights, contracts plus arts subjects.','You like debate, fairness and helping people with legal problems.',['Speaking','Reading','Arguing with proof','Writing'],['Lawyer','Legal advisor','Judge (after exams)','Company legal team'],['LLM','Jobs']],
+['mca','MCA','Master of Computer Applications','pg','2 years','After BCA, BSc IT or a degree with maths (check the college)','Advanced programming, software design, cloud and data.','You want a stronger IT career and better software jobs.',['Advanced programming','Software design','Databases','Project work'],['Software developer','Full stack developer','System analyst','Teacher (with exam)'],['PhD','Jobs']],
+['mscit','MSc IT','Master of Science in Information Technology','pg','2 years','After BSc IT, BCA or a related degree','Advanced IT: networks, security, data and software.','You want to go deeper into IT, security or research.',['Networks','Security','Data handling','Research'],['IT specialist','Network engineer','Cyber security analyst','Lecturer (with exam)'],['PhD','Jobs']],
+['mcom','M.Com','Master of Commerce','pg','2 years','After B.Com or a related degree','Advanced accounting, finance, business law and research.','You want to become a finance expert or a college teacher in commerce.',['Advanced accounting','Finance','Research','Excel'],['Senior accountant','Finance executive','Bank officer','Lecturer (with exam)'],['PhD','B.Ed','Jobs']],
+['mba','MBA','Master of Business Administration','pg','2 years','After any degree (many colleges use an entrance exam)','Management, marketing, finance, HR and operations.','You want to become a manager or start your own business. Works after BCA, B.Com, BA, B.Tech and more.',['Leadership','Decision making','Communication','Planning'],['Manager','Marketing head','HR manager','Business analyst','Entrepreneur'],['PhD','Jobs']],
+['ma','MA','Master of Arts','pg','2 years','After BA or a related degree','Advanced study of one subject, like English, history or political science.','You love your subject and want to teach, research or write.',['Research','Writing','Critical thinking'],['Lecturer (with exam)','Researcher','Editor','Civil services officer','Author'],['PhD','B.Ed','Jobs']],
+['msc','MSc','Master of Science','pg','2 years','After BSc in the same or a related subject','Advanced science with research and labs.','You want a career in research, labs or teaching science.',['Research','Lab skills','Analysis'],['Scientist (junior)','Lab manager','Lecturer (with exam)','Quality head'],['PhD','Jobs']],
+['mtech','M.Tech','Master of Technology','pg','2 years','After B.Tech (a good GATE score helps)','Deep study of one engineering field.','You want expert-level engineering, research or teaching jobs.',['Advanced engineering','Research','Project work'],['Senior engineer','Researcher','Lecturer (with exam)'],['PhD','Jobs']],
+['bed','B.Ed','Bachelor of Education','pg','2 years','After graduation','How to teach, make lesson plans and manage a class.','You want to become a school teacher.',['Teaching','Patience','Speaking','Planning'],['School teacher','Tutor','Education counsellor'],['M.Ed','Jobs']]
+];
+
+D.push(
+['ca','CA','Chartered Accountant','12','4 to 5 years','After 12th (commerce is best). You start with CA Foundation.','Accounting, tax, audit and company law. You study and give exams in stages, with practical training.','You like numbers and want a respected finance career. It is tough but has strong demand.',['Accounting','Tax rules','Audit','Hard work and focus'],['Chartered accountant','Auditor','Tax consultant','Finance manager'],['Jobs','MBA']],
+['bhm','BHM','Bachelor of Hotel Management','12','3 to 4 years','After 12th (any stream)','Hotel front office, cooking, food service, housekeeping and hotel business.','You like people, food and travel and are good at talking and serving guests.',['Communication','Cooking and service','Teamwork','Staying calm'],['Hotel manager','Chef','Front office executive','Event planner','Airline ground staff'],['MBA','Jobs']],
+['bjmc','BJMC','Bachelor of Journalism and Mass Communication','12','3 years','After 12th (any stream)','News writing, media, video and photo editing, social media and public relations.','You like telling stories, news and creating videos or content.',['Writing','Video editing','Speaking','Curiosity'],['Journalist','News anchor','Video editor','PR executive','Content creator'],['MA','MBA','Jobs']],
+['bdes','B.Des','Bachelor of Design (fashion, graphic, product, UX)','12','4 years','After 12th (any stream, many colleges use a design entrance test)','Drawing, design thinking, software like Photoshop, and your chosen area like fashion or graphics.','You are creative and like making things look good and work well.',['Drawing','Creativity','Design software','Presenting ideas'],['Graphic designer','Fashion designer','UX designer','Product designer'],['MBA','Jobs']],
+['bscag','BSc Agriculture','Bachelor of Science in Agriculture','12','4 years','After 12th science (PCB or PCM, check the college)','Crops, soil, water, farm machines, seeds and modern farming.','You like farming and want to improve it with science. Useful in Punjab and other farming states.',['Crop knowledge','Soil testing','Farm planning','Field work'],['Agriculture officer','Farm manager','Seed company officer','Bank agriculture officer'],['MSc','MBA','Jobs']],
+['bds','BDS','Bachelor of Dental Surgery','12','5 years (with internship)','After 12th with PCB and a medical entrance exam','Teeth, gums, mouth care and dental treatment.','You want to be a dentist and like careful hand work.',['Steady hands','Biology','Patience','Talking to patients'],['Dentist','Dental clinic owner','Hospital dentist'],['Jobs']],
+['bpt','BPT','Bachelor of Physiotherapy','12','4.5 years (with internship)','After 12th with PCB','Body movement, exercise therapy, injury recovery and pain treatment.','You like helping people recover from injury and stay fit.',['Anatomy','Exercise knowledge','Patience','Care'],['Physiotherapist','Sports rehab expert','Clinic owner'],['Jobs','MBA']],
+['bams','BAMS','Bachelor of Ayurvedic Medicine and Surgery','12','5.5 years (with internship)','After 12th with PCB and an entrance exam','Ayurveda, herbs, diet, body balance and modern basics.','You are interested in Ayurveda and natural healing.',['Biology','Herbal knowledge','Patience'],['Ayurvedic doctor','Wellness centre expert','Government Ayush officer'],['Jobs']],
+['barch','B.Arch','Bachelor of Architecture','12','5 years','After 12th with PCM and an architecture entrance test','Building design, drawing, materials, town planning and software like AutoCAD.','You like drawing, design and making buildings.',['Drawing','Maths','3D thinking','Creativity'],['Architect','Interior designer','Town planner'],['MBA','Jobs']],
+['ett','D.El.Ed / ETT','Diploma in Elementary Education','12','2 years','After 12th (many states ask for 50 percent marks)','How to teach young children, lesson plans and child psychology.','You want to become a primary school teacher quickly.',['Teaching','Patience','Speaking','Creativity'],['Primary teacher','Tutor','Anganwadi supervisor (with exam)'],['BA','B.Ed','Jobs']],
+['bsw','BSW','Bachelor of Social Work','12','3 years','After 12th (any stream)','Helping communities, NGOs, counselling basics and social problems.','You want to help people and work for society.',['Listening','Empathy','Communication','Organising'],['NGO worker','Counsellor','Community officer','CSR executive'],['MA','MBA','Jobs']],
+['bsccs','BSc Computer Science','Bachelor of Science in Computer Science','12','3 years','After 12th (maths or science preferred)','Programming, data structures, databases and operating systems.','Like BCA, with more theory of how computing works.',['Programming','Logic','Databases','Algorithms'],['Software developer (junior)','Web developer','Tester','IT support'],['MSc','MCA','MBA','Jobs']],
+['bscds','BSc Data Science','Bachelor of Science in Data Science','12','3 years','After 12th with maths (check the college)','Python, statistics, data analysis, charts and basic machine learning.','You like numbers and patterns and want a modern data career.',['Python','Statistics','Excel and SQL','Data charts'],['Data analyst (junior)','Business analyst (junior)','Reporting executive'],['MSc','MCA','MBA','Jobs']],
+['pgdca','PGDCA','Post Graduate Diploma in Computer Applications','pg','1 year','After graduation (any degree)','Computer basics, office software, programming basics and databases.','You want computer skills fast after any degree for office and IT support jobs.',['MS Office','Basic programming','Typing','Databases'],['Computer operator','Data entry operator','Office assistant','IT support (junior)'],['MCA','Jobs']],
+['llm','LLM','Master of Laws','pg','1 to 2 years','After LLB or BA LLB','Deeper study of one law area like criminal, corporate or constitutional law.','You want to be a law expert or a law teacher.',['Legal research','Writing','Arguing'],['Advocate','Legal advisor','Law lecturer (with exam)'],['PhD','Jobs']],
+['mpharm','M.Pharm','Master of Pharmacy','pg','2 years','After B.Pharm (a good GPAT score helps)','Advanced medicine making, testing and research.','You want a research or senior role in medicine companies.',['Research','Lab skills','Accuracy'],['Drug researcher','Quality manager','Lecturer (with exam)'],['PhD','Jobs']],
+['md','MD / MS (specialist)','Doctor of Medicine / Master of Surgery','pg','3 years','After MBBS with NEET PG','Becoming a specialist like heart, bone, child or skin doctor.','You want to be an expert doctor in one area.',['Deep medical knowledge','Decision making','Patience'],['Specialist doctor','Surgeon','Professor in a medical college'],['Jobs']],
+['msn','MSc Nursing','Master of Science in Nursing','pg','2 years','After BSc Nursing','Advanced patient care, hospital management and teaching nurses.','You want a senior nursing or teaching role.',['Leadership','Care','Teaching'],['Nursing officer','Nursing teacher','Hospital nursing head'],['PhD','Jobs']],
+['med','M.Ed','Master of Education','pg','2 years','After B.Ed','Teaching research, education planning and school leadership.','You want to become a college teacher or education officer.',['Teaching','Planning','Research'],['Teacher trainer','School principal (with experience)','Education officer'],['PhD','Jobs']],
+['phd','PhD','Doctor of Philosophy (research degree)','pg','3 to 5 years','After a master degree (many need a national eligibility test)','Deep research on one topic and writing a thesis.','You love research and want to become a professor or scientist.',['Research','Writing','Patience','Critical thinking'],['Professor','Scientist','Research head'],['Jobs']]
+);
+/* fees: id -> [years, govtLowK, govtHighK, pvtLowK, pvtHighK per year, in thousand rupees] */
+const F={arts:[2,1,15,30,150],commerce:[2,1,15,30,150],pcb:[2,1,15,30,150],pcm:[2,1,15,30,150],diploma:[3,5,25,40,120],bca:[3,5,30,50,250],bscit:[3,5,30,50,200],bcom:[3,3,20,30,120],bba:[3,6,40,100,250],ba:[3,3,20,25,100],bsc:[3,5,30,30,150],btech:[4,25,120,75,350],mbbs:[5.5,5,150,600,1800],nursing:[4,10,60,80,200],bpharm:[4,20,80,80,200],ballb:[5,10,150,100,300],mca:[2,10,60,80,200],mscit:[2,10,50,50,150],mcom:[2,5,30,40,120],mba:[2,25,200,150,700],ma:[2,4,25,25,80],msc:[2,8,40,40,150],mtech:[2,20,100,60,250],bed:[2,10,50,40,100],ca:[4.5,15,60,50,200],bhm:[3.5,20,60,80,250],bjmc:[3,8,40,60,200],bdes:[4,50,200,150,400],bscag:[4,10,60,60,200],bds:[5,10,100,250,800],bpt:[4.5,10,60,60,200],bams:[5.5,5,60,100,300],barch:[5,30,120,100,350],ett:[2,5,30,30,80],bsw:[3,3,20,25,100],bsccs:[3,5,30,40,150],bscds:[3,10,50,80,250],pgdca:[1,5,20,20,60],llm:[1.5,10,100,60,250],mpharm:[2,20,80,60,200],md:[3,20,200,500,2500],msn:[2,10,50,50,150],med:[2,10,50,40,100],phd:[4,5,30,30,150]};
+const inr=k=>{const v=k*1000;if(v>=1e7)return '₹'+(v/1e7).toFixed(1).replace('.0','')+' crore';if(v>=1e5)return '₹'+(v/1e5).toFixed(1).replace('.0','')+' lakh';return '₹'+Math.round(v).toLocaleString('en-IN')};
+const rng=(a,b)=>inr(a)+' to '+inr(b);
+function fees(d){const f=F[d[0]];if(!f)return '';const sch=d[3]==='10',y=f[0];
+ const row=(n,lo,hi)=>`<tr><td><b>${n}</b></td><td>${sch?rng(lo,hi):rng(lo/2,hi/2)}</td><td>${rng(lo*y,hi*y)}</td></tr>`;
+ return `<h4>Estimated fees (rough idea)</h4><table style="width:100%;border-collapse:collapse;font-size:.92rem"><tr style="background:var(--tint);text-align:left"><th style="padding:6px">College type</th><th>${sch?'Per year':'Per semester'}</th><th>Total (${y} ${y===1?'year':'years'})</th></tr>${row('Government',f[1],f[2])}${row('Private',f[3],f[4])}</table><p style="margin-top:8px;color:var(--mut);font-size:.86rem">These are rough estimates only. Fees depend on the college, city and seat type. Books, hostel, food, travel, exam fees and coaching are extra. Always check the official fee page of the college.${sch?' Coaching for entrance exams like NEET or JEE costs extra.':''}</p>`}
+const byName={};D.forEach(d=>byName[norm(d[1])]=d);
+let lvl='all',q='',mood='';
+const L={'10':'After 10th','12':'After 12th','pg':'After graduation'};
+const likes={'Computers':['bca','bscit','bsccs','bscds','pgdca','pcm','btech','mca','mscit'],'Money and business':['commerce','bcom','bba','ca','mcom','mba'],'People and stories':['arts','ba','bjmc','bsw','ett','ma','bed'],'Biology and health':['pcb','mbbs','bds','bpt','bams','nursing','bpharm','bscag'],'Law and debate':['ballb','llm','arts'],'Design and creativity':['bdes','barch','bjmc'],'Hotels and travel':['bhm'],'Building things':['pcm','btech','diploma','barch','mtech']};
+function path(){const items=[['all','All']].concat(Object.entries(L));
+ $('path').innerHTML=items.map((x,i)=>(i>1?'<i>➜</i>':'')+`<button data-l="${x[0]}" class="${lvl===x[0]?'on':''}">${x[1]}</button>`).join('');
+ $('mine').innerHTML=Object.keys(likes).map(k=>`<button data-m="${k}" class="${mood===k?'on':''}">${k}</button>`).join('')}
+function list(){
+ let r=D.filter(d=>lvl==='all'||d[3]===lvl);
+ if(mood)r=r.filter(d=>likes[mood].includes(d[0]));
+ if(q){const n=norm(q).replace(/^after/,'');
+  const s={'10':'10','10th':'10','12':'12','12th':'12','graduation':'pg','degree':'pg','pg':'pg'}[n];
+  r=s?D.filter(d=>d[3]===s):D.filter(d=>norm(d.slice(0,3).concat(d[6],d[8],d[9]).join(' ')).includes(n))}
+ $('ttl').textContent=q?`Results for "${q}"`:(lvl==='all'?'All options':L[lvl]);
+ $('cnt').textContent=r.length+' found';
+ $('grid').innerHTML=r.length?r.map(d=>`<button class="c l${d[3]}" data-id="${d[0]}"><span class="badge">${L[d[3]]}</span><h3>${d[1]}</h3><small>${d[2]}</small><p>${d[6].split('.')[0]}.</p></button>`).join(''):'<div class="empty">No match found. Try BCA, B.Com, BA, MBA or "after 12th".</div>'}
+function open(d){
+ $('dt').textContent=d[1];$('df').textContent=d[2];
+ $('dm').innerHTML=`<span>⏱ ${d[4]}</span><span>🎓 ${d[5]}</span>`;
+ const tg=(a,c)=>`<div class="tags">${a.map(x=>`<span class="tag ${c||''}">${x}</span>`).join('')}</div>`;
+ const nx=d[10].map(n=>byName[norm(n)]?`<button class="nx" data-id="${byName[norm(n)][0]}">${n} ➜</button>`:`<span class="tag nx">${n}</span>`).join(' ');
+ $('db').innerHTML=`<h4>What you will learn</h4><p>${d[6]}</p><h4>Why choose it?</h4><p class="why">${d[7]}</p><h4>Skills you build</h4>${tg(d[8])}<h4>Jobs you can do</h4>${tg(d[9],'job')}${fees(d)}<h4>After ${d[1]}, what next?</h4><div class="tags">${nx}</div><p style="margin-top:14px;color:var(--mut);font-size:.88rem">Tap an orange button to see that course.</p>`;
+ if(!$('dg').open)$('dg').showModal();$('dg').scrollTop=0}
+$('sf').onsubmit=e=>{e.preventDefault();q=$('q').value.trim();lvl='all';mood='';path();list();$('grid').scrollIntoView({behavior:'smooth'})};
+$('q').oninput=()=>{q=$('q').value.trim();list()};
+$('path').onclick=e=>{const b=e.target.closest('[data-l]');if(!b)return;lvl=b.dataset.l;q='';$('q').value='';path();list()};
+$('mine').onclick=e=>{const b=e.target.closest('[data-m]');if(!b)return;mood=mood===b.dataset.m?'':b.dataset.m;path();list()};
+$('grid').onclick=e=>{const b=e.target.closest('[data-id]');if(b)open(D.find(d=>d[0]===b.dataset.id))};
+$('db').onclick=e=>{const b=e.target.closest('[data-id]');if(b)open(D.find(d=>d[0]===b.dataset.id))};
+$('cl').onclick=()=>$('dg').close();
+$('dg').onclick=e=>{if(e.target===$('dg'))$('dg').close()};
+path();list();
+</script>
+</body>
+</html>
